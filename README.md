@@ -2,7 +2,7 @@
 Group Members:<br> Jasmine Huang<br> MengChen Chung<br><br>
 
 
-<h3><ins>Introduction</ins></h3>
+<h2>Introduction</h2>
 
 
 Movies have been an integral part of public entertainment, cultural discourse, political movement, and artistic expression since the public screening of the Lumière brothers' short films in Paris on 28 December 1895. Indeed, motion pictures have evolved drastically since the early years of cinematography, in terms of quality, length, audience, plot, composition, techniques, casts and so many other aspects. Movies provide social scientists with rich information on human society, psychology, and their boundless imaginations. Public tastes for movies, therefore, tell important stories of the wants and needs of individuals as well as the greater cultural social environments where they live. 
@@ -18,7 +18,7 @@ Our dataset consists of over 20,000 movies between 2010-2019 in the United State
 
 Nevertheless, some caveats need to be kept in mind for this dataset when analyzing and concluding the findings. First, the dataset does not cover the whole year of 2019 since the timing of scraping was in the middle of 2019. Second, the dataset has filtered out the number of votes less than 10, so that the ratings are not too biased by minor reviews. Thirdly, although we manually removed a few outliers that run extraordinarily longer, the distribution of runtime is skewed to the left with a long tail to the right. Additionally, the numVotes feature is also not normally distributed, with a slight skewness to the right. These unbalanced features may influence the performances of models that are sensitive to outliers.
  
-Feature Engineering
+<h4>Feature Engineering</h4>
 For model fitting, we employed different techniques to engineer the features. First, we find that the genre feature is a list of strings that indicate different genre types for a given movie. We convert the feature into 24 different columns with each column representing an individual genre. If a movie belongs to a genre, it will be marked as 1 in the genre’s column, otherwise, it will be set to 0. Therefore, a movie can be categorized into more than one genre, with all relevant genres coded as 1 and others coded as 0. Another categorical variable that needs to be encoded is the start year. We also change them into independent columns in a similar fashion.
  
 We then transform the target variable average_rating into three classes. The original ratings range continuously from 1 to 10. Keeping all 10 classes creates a huge burden for the model because our dataset is relatively small compared to the number of labels. With this consideration in mind, we decide to split the continuous variable average_rating into three classes- for ratings below 5, we encode them as 0 (bad); for ratings between 5-7, we encode them as 1 (mediocre); for ratings larger than 7, they will be encoded as 2 (good). 
@@ -28,7 +28,7 @@ To fit textual data into natural language models, we wrangled the plot informati
 
 
 
-<h3><ins>Methods and Results</ins></h3>
+<h2>Methods and Results</h2>
 
 
 <h4>Baseline</h4>
@@ -54,7 +54,7 @@ We use two bidirectional LSTM layers in the model and expect the model to learn 
 
 
 
-<h3><ins>Discussion</ins></h3>
+<h2>Discussions</h2>
 
 We find consistent improvement in prediction switching from linear models to neural networks for baseline and various word embedding models. This demonstrates the superiority of neural nets in capturing non-linear and contextual information. Also, this improvement may come from the large amount of data we have.
 
